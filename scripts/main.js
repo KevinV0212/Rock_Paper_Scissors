@@ -23,14 +23,14 @@ function playRound(playerSelection, computerSelection){
     let summary = `Player chooses ${playerSelection}, Computer chooses ${computerSelection}.\n`;
     let playerWins = false;
     
-    
     // handles ties
     if (playerSelection === computerSelection)
     {
-        console.log(summary + ' It is a tie !!!');
+        console.log(summary + ' It is a tie!!!');
         return 'tie';
     }
 
+    // handles outcomes when player chooses rock
     if (playerSelection === 'ROCK')
     {
         if (computerSelection === 'PAPER')
@@ -39,10 +39,11 @@ function playRound(playerSelection, computerSelection){
         }
         else
         {
-            console.log(summary + ' The Player Wins !!!');
+            console.log(summary + ' The Player Wins!!!');
             playerWins = true;
         }
     }
+    // handles outcomes when player chooses paper
     else if (playerSelection === 'PAPER')
     {
         if (computerSelection === 'SCISSORS')
@@ -55,6 +56,7 @@ function playRound(playerSelection, computerSelection){
             playerWins = true;
         }
     }
+    // handles outcomes when player chooses scissors
     else
     {
         if (computerSelection === 'ROCK')
@@ -68,7 +70,7 @@ function playRound(playerSelection, computerSelection){
         }
     }
 
-    // return 'user' if user wins, 'computer' if computer wins, then 'tie' if it is a tie
+    // return 'user' if user wins, 'computer' if computer wins
     if (playerWins)
     {
         return "user";
