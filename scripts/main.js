@@ -1,44 +1,39 @@
+// generates random choice for computer via Math.random
 function getComputerChoice(){
-    // generate a random number 1-3
     const choice =  Math.floor(Math.random() * 3) + 1;
-    // assign each number to a choice
-    // 1 - return rock; 2 - return paper; 3 - return scissors
-    // return the string assignment for the original random number
-
+   
+    // assign each of 3 values to a game choices
     if (choice === 1)
     {
-        return 'rock';
+        return 'ROCK';
     }
     else if (choice === 2)
     {
-        return 'paper';
+        return 'PAPER';
     }
     else
     {
-        return 'scissors';
+        return 'SCISSORS';
     }
 
 }
 
+// simulates a round of the game from player and compute rimput
 function playRound(playerSelection, computerSelection){
-    let summary = `Player chooses ${playerSelection}, Computer chooses ${computerSelection}`;
+    let summary = `Player chooses ${playerSelection}, Computer chooses ${computerSelection}.\n`;
     let playerWins = false;
-    // handle ties
     
-    // for each possible user choice, give a conditional choice for the 3 possible chioces the computer could have made
-    // this is one else if ladder for the user choice, then 3 else if ladders for the 3 possible computer choices to compare them to
     
-    // print out who wins the round in each case
-
+    // handles ties
     if (playerSelection === computerSelection)
     {
         console.log(summary + ' It is a tie !!!');
         return 'tie';
     }
 
-    if (playerSelection === 'rock')
+    if (playerSelection === 'ROCK')
     {
-        if (computerSelection === 'paper')
+        if (computerSelection === 'PAPER')
         {
             console.log(summary + ' The Computer Wins!!!');
         }
@@ -48,9 +43,9 @@ function playRound(playerSelection, computerSelection){
             playerWins = true;
         }
     }
-    else if (playerSelection === 'paper')
+    else if (playerSelection === 'PAPER')
     {
-        if (computerSelection === 'scissors')
+        if (computerSelection === 'SCISSORS')
         {
             console.log(summary + ' The Computer Wins!!!')
         }
@@ -62,7 +57,7 @@ function playRound(playerSelection, computerSelection){
     }
     else
     {
-        if (computerSelection === 'rock')
+        if (computerSelection === 'ROCK')
         {
             console.log(summary + ' The Computer Wins!!!')
         }
@@ -85,26 +80,20 @@ function playRound(playerSelection, computerSelection){
 }
 
 function game(){
-    // create numUserWins variable
     let numUserWins = 0;
 
-    // create numComputerWins variable
     let numComputerWins = 0;
-    // *initialize both to 0
     
     let result = '';
-    // for 5 rounds:
-    //  call playRound function 
-    //      for user input, pass the prompt function as the first argument
-    //      for the computer input, pass the getComputerChoice function as the second argument
+    
+
     for (let round = 1; round <= 5; round++)
     {
-        let userInput = prompt('Enter your move: Rock, Paper, or Scissors').toLowerCase();
+        let userInput = prompt('Enter your move: Rock, Paper, or Scissors').toUpperCase();
         let computerInput = getComputerChoice();
         console.log(`Round ${round}:`);
 
-        // set a result variable to call of playRound with both choices as input
-        // based on result, increment either numUserWins, numComputerWins, or both;
+        // track who wins
         result = playRound(userInput, computerInput);
         if (result === 'user')
         {
@@ -121,10 +110,8 @@ function game(){
         }
     }  
     
-    // if numUserWins > computer wins, print out user win message
-    // else if numComputerWins > numUserWins, print out user message
-    // else, print that it was a tie
-
+    // print a message depending on if
+    //  the user wins; the computer wins; or there was an overall tie
     if (numUserWins > numComputerWins)
     {
         console.log("User Wins: Man has overcome machine!!!")
