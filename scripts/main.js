@@ -1,6 +1,6 @@
 // generates random choice for computer via Math.random
 function getComputerChoice(){
-    const choice =  Math.floor(Math.random() * 3) + 1;
+    const choice = Math.floor(Math.random() * 3) + 1;
    
     // assign each of 3 values to a game choices
     if (choice === 1)
@@ -15,7 +15,6 @@ function getComputerChoice(){
     {
         return 'SCISSORS';
     }
-
 }
 
 // simulates a round of the game from player and compute rimput
@@ -52,7 +51,7 @@ function playRound(playerSelection, computerSelection){
         }
         else
         {
-            console.log(summary + ' The Player Wins !!!')
+            console.log(summary + ' The Player Wins!!!')
             playerWins = true;
         }
     }
@@ -65,7 +64,7 @@ function playRound(playerSelection, computerSelection){
         }
         else
         {
-            console.log(summary + ' The Player Wins !!!')
+            console.log(summary + ' The Player Wins!!!')
             playerWins = true;
         }
     }
