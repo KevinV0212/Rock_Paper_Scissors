@@ -89,11 +89,13 @@ function game(){
     let computerWins = 0;
     let result = '';
     
-    let roundCount = document.querySelector('#round-count');
+    const container = document.querySelector('.container');
+    const roundCount = document.querySelector('#round-count');
     
     // add event listener to all buttons (querySelectorAll)
     const buttons = document.querySelectorAll('.move-btn');
     buttons.forEach(button => button.addEventListener('click', (e) => {
+        if (userWins >= NUM_GAMES || computerWins >= NUM_GAMES) return;
         round++;
         roundCount.textContent = `Round: ${round}`
         
@@ -122,18 +124,27 @@ function game(){
 
         if (userWins >= NUM_GAMES || computerWins >= NUM_GAMES)
         {
-            // remove event listener
+            const outcome = document.createElement('p');
             if (userWins > computerWins)
-                // change scoreboard to user win message
+                outcome.textContent = 'User Wins: Man has overcome machine!!!';
             else if (computerWins > userWins)
-                // change scoreboard to win message
+                outcome.textContent = 'Computer Wins: The robot revolution is upon us!!!';
             else
-                // change scoreboard to message
+                outcome.textContent = 'Tie: Let us coexist like in Transformers or something.';
+
+            container.appendChild(outcome);
         }
-    }))
         
-    
-
+        // if (numUserWins > numComputerWins)
+        // {
+        //     console.log("User Wins: Man has overcome machine!!!")
+        // }
+        // else if (numComputerWins > numUserWins){
+        //     console.log("Computer Wins: The robot revolution is upon us!!!")
+        // }
+        // else {
+        //     console.log("Tie: Let us coexist like in Transformers or something.")
+        // }
+    }))
 }
-
 game();
